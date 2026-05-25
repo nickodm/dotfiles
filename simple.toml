@@ -79,13 +79,10 @@ alignment = "left"
   type = "git"
   style = "plain"
   foreground = "p:orange"
-  template = "({{ .HEAD }}) "
+  template = "({{ trunc 25 .HEAD }}) "
 
     [blocks.segments.properties]
     branch_icon = "" # Hide the git icon
-
-    [blocks.segments.options]
-    branch_template = "{{ trunc 25 .Branch }}"
     fetch_status = false
     fetch_upstream_icon = false
 
