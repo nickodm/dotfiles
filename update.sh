@@ -1,0 +1,7 @@
+#! /usr/bin/bash
+# Update the preset by overwriting the actual hardlink.
+# This is done with this because EasyEffects creates a new file everytime
+# the preset is modified.
+
+ln ~/.local/share/easyeffects/output/HP\ Omen.json ./hp-omen.json -f
+echo "Updated."
