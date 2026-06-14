@@ -38,10 +38,9 @@ alignment = "left"
 #* ----- OS -----
   [[blocks.segments]]
   type = "os"
-  style = "diamond"
-  leading_diamond = ""
-  template = "{{.Icon}} {{.OS}} "
-  background = "p:white"
+  style = "powerline"
+  template = " {{.Icon}} "
+  background = "p:black"
   foreground = "p:blue"
   foreground_templates = [ 
     "{{ if eq .OS \"ubuntu\" }}p:red{{ end }}",
@@ -51,27 +50,34 @@ alignment = "left"
 #* ----- PATH -----
   [[blocks.segments]]
   type = "path"
-  style = "diamond"
-  template = "  {{ path .Path .Location }} "
-  leading_diamond = ""
-  trailing_diamond = ""
-  foreground = "p:black"
+  style = "powerline"
   powerline_symbol = ""
+  template = "  {{ .Folder }} "
+  foreground = "p:black"
   background = "p:green"
 
+#* ----- GIT -----
+  [[blocks.segments]]
+  type = "git"
+  style = "powerline"
+  powerline_symbol = ""
+  template = " {{ .HEAD }} "
+  foreground = "p:white"
+  background = "p:orange"
+
     [blocks.segments.options]
-    style = "folder"
+    branch_template = "{{ trunc 25 .Branch }}"
+    fetch_status = false
+    fetch_upstream_icon = false
 
 #* ----- PYTHON VENV -----
   [[blocks.segments]]
   type = "python"
-  style = "diamond"
-  template = "  {{ if .Venv }}{{ .Full }}{{ end }} "
+  style = "powerline"
   powerline_symbol = ""
-  foreground = "p:white"
-  background = "p:red"
-  leading_diamond = "<transparent,background></>"
-  trailing_diamond = ""
+  template = "  {{ if .Venv }}{{ .Full }}{{ end }} "
+  foreground = "p:green"
+  background = "p:black"
 
     [blocks.segments.options]
     fetch_virtual_env = true
@@ -88,39 +94,24 @@ alignment = "left"
   foreground = "p:white"
   background = "p:red"
 
-#* ----- GIT -----
-  [[blocks.segments]]
-  type = "git"
-  style = "powerline"
-  template = " {{ .HEAD }} "
-  powerline_symbol = ""
-  foreground = "p:white"
-  background = "p:orange"
-
-    [blocks.segments.options]
-    branch_template = "{{ trunc 25 .Branch }}"
-    fetch_status = false
-    fetch_upstream_icon = false
-
 #* ----- ROOT -----
   [[blocks.segments]]
   type = "root"
   style = "powerline"
-  template = "  "
-  foreground = "p:red"
+  template = "  " # Volt
+  foreground = "p:orange"
   powerline_symbol = ""
-  background = "p:white"
+  background = "p:black"
 
 #* ----- STATUS -----
   [[blocks.segments]]
   type = "status"
-  style = "diamond"
+  style = "powerline"
   template = " {{ if gt .Code 0 }}{{ else }}{{ end }} "
-  leading_diamond = "<transparent,background></>"
-  trailing_diamond = ""
+  powerline_symbol = ""
   foreground = "p:white"
   background = "p:blue"
-  background_templates = [ "{{ if gt .Code 0 }}p:red{{ end }}" ]
+  background_templates = ["{{ if gt .Code 0 }}p:red{{ end }}"]
 
     [blocks.segments.properties]
     always_enabled = true
