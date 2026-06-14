@@ -4,4 +4,4 @@
 # the preset is modified.
 
 ln ~/.local/share/easyeffects/output/HP\ Omen.json ./hp-omen.json -f
-echo "Updated."
+echo "Pulled."

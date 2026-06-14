@@ -1,0 +1,6 @@
+#! /usr/bin/bash
+# Update the changes made in this repository to the preset in
+# easyeffects.
+
+cp ./hp-omen.json ~/.local/share/easyeffects/output/HP\ Omen.json
+echo "Pushed."
