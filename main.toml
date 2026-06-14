@@ -2,7 +2,7 @@
 
 #: schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 
-console_title_template = "{{ .Shell }} in {{ .Folder }}"
+console_title_template = "({{ .Shell }}) {{ .UserName }}@{{ .HostName }}:{{ .PWD }}"
 version = 3
 final_space = true
 
@@ -46,6 +46,13 @@ alignment = "left"
     "{{ if eq .OS \"ubuntu\" }}p:red{{ end }}",
     "{{ if eq .OS \"android\" }}p:green{{ end }}"
   ]
+
+  [[block.segments]]
+  type = "session"
+  style = "powerline"
+  template = "{{if .SSHSession }} {{ .UserName }}@{{ .HostName }} {{ end }} "
+  background = "p:black"
+  foreground = "p:blue"
 
 #* ----- PATH -----
   [[blocks.segments]]
