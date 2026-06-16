@@ -1,0 +1,10 @@
+#! /usr/bin/bash
+# Update the changes made in this repository to the preset in
+# easyeffects.
+
+base="share/easyeffects/output/HP Omen.json"
+origin="dot-local/$base"
+destiny="$HOME/.local/$base"
+
+cp $origin $destiny
+echo "Pushed."

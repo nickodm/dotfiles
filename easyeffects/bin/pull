@@ -3,5 +3,10 @@
 # This is done with this because EasyEffects creates a new file everytime
 # the preset is modified.
 
-ln ~/.local/share/easyeffects/output/HP\ Omen.json ./hp-omen.json -f
+base="share/easyeffects/output/HP Omen.json"
+origin="$HOME/.local/$base"
+destiny="dot-local/$base"
+
+ln -f $origin $destiny
 echo "Pulled."
+unset origin, destiny
