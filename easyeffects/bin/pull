@@ -7,6 +7,5 @@ base="share/easyeffects/output/HP Omen.json"
 origin="$HOME/.local/$base"
 destiny="dot-local/$base"
 
-ln -f $origin $destiny
+ln -f "$origin" "$destiny"
 echo "Pulled."
-unset origin, destiny

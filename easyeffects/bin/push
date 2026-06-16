@@ -6,5 +6,5 @@ base="share/easyeffects/output/HP Omen.json"
 origin="dot-local/$base"
 destiny="$HOME/.local/$base"
 
-cp $origin $destiny
+cp "$origin" "$destiny"
 echo "Pushed."
