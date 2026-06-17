@@ -59,9 +59,14 @@ alignment = "left"
   type = "path"
   style = "powerline"
   powerline_symbol = ""
-  template = "  {{ .Folder }} "
+  template = "  {{ .Path }} "
   foreground = "p:black"
   background = "p:green"
+
+    [blocks.segments.options]
+    style = "agnoster_short"
+    display_root = true
+    folder_icon = "**"
 
 #* ----- GIT -----
   [[blocks.segments]]
