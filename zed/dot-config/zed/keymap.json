@@ -1,0 +1,39 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-;": "editor::ToggleLineNumbers"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-;": "editor::ToggleLineNumbers"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-;": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-`": "terminal_panel::Toggle"
+    }
+  }
+]
