@@ -47,6 +47,9 @@ alignment = "left"
     "{{ if eq .OS \"android\" }}p:green{{ end }}"
   ]
 
+    [blocks.segments.properties]
+    arch = "\uF303"
+
   [[block.segments]]
   type = "session"
   style = "powerline"
