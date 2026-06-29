@@ -7,6 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "languages": {
+    "Python": {
+      "always_treat_brackets_as_autoclosed": true,
+      "indent_guides": {
+        "background_coloring": "disabled",
+        "coloring": "indent_aware",
+        "enabled": true
+      }
+    }
+  },
   "proxy": "",
   "disable_ai": true,
   "vim": {
