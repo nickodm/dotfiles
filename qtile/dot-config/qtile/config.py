@@ -6,6 +6,8 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+MY_WALLPAPER = "/home/nickodm/images/wallpaper.png"
+
 mod = "mod4"
 terminal = guess_terminal()
 
@@ -135,26 +137,33 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
         background="#000000",
-        wallpaper=logo,
-        wallpaper_mode="center",
+        wallpaper=MY_WALLPAPER,
+        wallpaper_mode="fill",
         # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
         # By default we handle these events delayed to already improve performance, however your system might still be struggling
         # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
         # x11_drag_polling_rate = 60,
     ),
+    Screen(
+        top=bar.Bar(
+            [
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+            ],
+            24
+        ),
+        wallpaper=MY_WALLPAPER,
+        wallpaper_mode="fill"
+    )
 ]
 
 # Drag floating layouts.
