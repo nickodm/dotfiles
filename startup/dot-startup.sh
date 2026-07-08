@@ -6,10 +6,23 @@
 #     . ~/.startup.sh
 # fi
 
-export LANG="en_GB.UTF-8"
+# --- ENVIRONMENT VARIABLES ---
 export EDITOR="vim"
 export PATH="$PATH:$HOME/.local/bin"
 export STOW_DIR="$HOME/dotfiles"
+
+# --- OH MY POSH ---
+ompconfig="$HOME/.config/oh-my-posh"
+alias omp="oh-my-posh"
+
+omptheme() {
+    if [[ ! -f "$ompconfig/$1.toml" ]]; then
+        echo "Error: There is not a theme named \"$1\"." >&2
+        return 1
+    fi
+
+    eval $(oh-my-posh init bash -c "$ompconfig/$1.toml")
+}
 
 if [[ "$(tty)" == /dev/pts* ]]; then
     # Not in a TTY
@@ -19,5 +32,4 @@ else
     POSH_THEME="simple"
 fi
 
-alias omp="oh-my-posh"
-eval $(oh-my-posh init bash -c $HOME/.config/oh-my-posh/$POSH_THEME.toml)
+omptheme "$POSH_THEME"
