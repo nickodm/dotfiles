@@ -1,10 +1,18 @@
 import os
+import subprocess
 
 import libqtile.resources
-from libqtile import bar, layout, qtile, widget
+from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+
+@hook.subscribe.startup_once
+def autostart():
+    # To allow transparencies
+    subprocess.Popen(["picom", "--backend", "xrender"])
+
+    subprocess.Popen(["xrandr", "--output", "HDMI-1-0", "--auto", "--right-of", "eDP", "--primary"])
 
 MY_WALLPAPER = "/home/nickodm/images/wallpaper.png"
 
@@ -12,6 +20,7 @@ mod = "mod4"
 terminal = guess_terminal()
 
 keys = [
+    Key([mod, "shift"], "Tab", lazy.next_screen(), desc="Switch monitor"),
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
@@ -101,8 +110,8 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-        border_focus="1e78e4",
-        border_normal="#000000",
+        border_focus="#ff7040",
+        border_normal="#1e78e4",
         margin=5,
         border_width=4
     ),
@@ -122,7 +131,7 @@ layouts = [
 
 widget_defaults = dict(
     font="sans",
-    fontsize=12,
+    fontsize=14,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -144,7 +153,7 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Clock(format="%a %d-%m-%Y %I:%M"),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
