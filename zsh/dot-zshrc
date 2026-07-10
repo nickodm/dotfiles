@@ -1,0 +1,32 @@
+# /usr/bin/zsh
+# Zsh 5.9.1
+
+# --- ENVIRONMENT VARIABLES ---
+
+export PATH="$HOME/.local/bin:$PATH"
+export EDITOR="vim"
+export STOW_DIR="$HOME/dotfiles"
+
+# --- ALIASES ---
+
+alias ls="ls --color=auto"
+
+# --- CUSTOM FUNCTIONS ---
+
+omptheme() {
+    local ompconfig="$HOME/.config/oh-my-posh"
+    if [[ ! -f "$ompconfig/$1.toml" ]]; then
+        echo "Error: There isn't a theme named like that." >&2
+        return 1
+    fi
+
+    eval $(oh-my-posh init zsh -c "$ompconfig/$1.toml")
+}
+
+# --- INIT ---
+
+if [[ $(tty) == /dev/tty* ]]; then
+    omptheme simple
+else
+    omptheme main
+fi
