@@ -21,9 +21,7 @@ foreground = "p:white"
 background = "transparent"
 
 [transient_prompt]
-template = "<p:green,transparent></><,p:green> {{ .Folder }} </><p:green,transparent></> "
-foreground = "p:black"
-background = "transparent"
+template = "{{ if gt .Code 0 }}<p:white,p:red>{{ else }}<p:black,p:green>{{ end }} {{ .PWD }} </>{{ if gt .Code 0 }}<p:red,transparent>{{ else }}<p:green,transparent>{{ end }}</> "
 
 [upgrade]
 source = "cdn"
