@@ -1,6 +1,15 @@
 # /usr/bin/zsh
 # Zsh 5.9.1
 
+# --- OPTIONS ---
+
+# Spell-checking for commands
+setopt correct
+
+# --- KEY BINDINGS ---
+
+bindkey ^H vi-backward-kill-word
+
 # --- ENVIRONMENT VARIABLES ---
 
 export PATH="$HOME/.local/bin:$PATH"
@@ -10,17 +19,26 @@ export STOW_DIR="$HOME/dotfiles"
 # --- ALIASES ---
 
 alias ls="ls --color=auto"
+alias tree="tree -C"
+alias vim="nvim"
 
 # --- CUSTOM FUNCTIONS ---
 
 omptheme() {
     local ompconfig="$HOME/.config/oh-my-posh"
-    if [[ ! -f "$ompconfig/$1.toml" ]]; then
+    omptheme="$ompconfig/$1.toml"
+    if [[ ! -f "$omptheme" ]]; then
         echo "Error: There isn't a theme named like that." >&2
         return 1
     fi
 
-    eval $(oh-my-posh init zsh -c "$ompconfig/$1.toml")
+    eval $(oh-my-posh init zsh -c "$omptheme")
+}
+
+dot-zsh () {
+    local p="$HOME/.zshrc"
+    . "$p"
+    echo "Reloaded $p"
 }
 
 # --- INIT ---
@@ -30,3 +48,8 @@ if [[ $(tty) == /dev/tty* ]]; then
 else
     omptheme main
 fi
+
+# pyenv init
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
