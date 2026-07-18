@@ -21,7 +21,10 @@ foreground = "p:white"
 background = "transparent"
 
 [transient_prompt]
-template = "{{ if gt .Code 0 }}<p:white,p:red>{{ else }}<p:black,p:green>{{ end }} {{ .PWD }} </>{{ if gt .Code 0 }}<p:red,transparent>{{ else }}<p:green,transparent>{{ end }}</> "
+template = """\
+{{ if eq .Code 0 }}<p:black,p:green>{{ else }}<p:white,p:red>{{ .Code }}{{ end }} {{ .PWD }} </>\
+{{ if eq .Code 0 }}<p:green,transparent>{{ else }}<p:red,transparent>{{ end }}</> \
+"""
 
 [upgrade]
 source = "cdn"
@@ -37,21 +40,46 @@ alignment = "left"
   [[blocks.segments]]
   type = "os"
   style = "powerline"
-  template = " {{.Icon}} "
+  powerline_symbol = ""
+  leading_powerline_symbol = ""
+  template = " {{ .Icon }} {{ .OS }} "
   background = "p:black"
   foreground = "p:blue"
-  foreground_templates = [ 
+  foreground_templates = [
     "{{ if eq .OS \"ubuntu\" }}p:red{{ end }}",
-    "{{ if eq .OS \"android\" }}p:green{{ end }}"
+    "{{ if eq .OS \"android\" }}p:green{{ end }}",
+    "{{ if eq .OS \"debian\" }}p:red{{ end }}",
   ]
 
     [blocks.segments.properties]
     arch = "\uF303"
 
-  [[block.segments]]
+#* ----- BATTERY -----
+
+  [[blocks.segments]]
+  type = "battery"
+  style = "powerline"
+  powerline_symbol = ""
+  template = " {{ if lt .Percentage 30}}󰁺{{ else if lt .Percentage 50}}󰁾{{ else }}󰁹{{ end }} {{ .Percentage }}% "
+
+  background_templates = [
+    "{{ if lt .Percentage 30 }}p:red{{ end }}",
+    "{{ if lt .Percentage 50 }}p:orange{{ end }}",
+    "{{ if le .Percentage 100 }}p:green{{ end }}",
+  ]
+
+  foreground_templates = [
+    "{{ if lt .Percentage 50 }}p:white{{ end }}",
+    "{{ if le .Percentage 100 }}p:black{{ end }}",
+  ]
+
+#* ----- SESSION -----
+
+  [[blocks.segments]]
   type = "session"
   style = "powerline"
-  template = "{{if .SSHSession }} {{ .UserName }}@{{ .HostName }} {{ end }} "
+  powerline_symbol = ""
+  template = " {{ .UserName }}@{{ .HostName }} "
   background = "p:black"
   foreground = "p:blue"
 
@@ -62,7 +90,7 @@ alignment = "left"
   powerline_symbol = ""
   template = "  {{ .Path }} "
   foreground = "p:black"
-  background = "p:green"
+  background = "p:blue"
 
     [blocks.segments.options]
     style = "agnoster_short"
@@ -116,15 +144,21 @@ alignment = "left"
   powerline_symbol = ""
   background = "p:black"
 
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
 #* ----- STATUS -----
   [[blocks.segments]]
   type = "status"
-  style = "powerline"
-  template = " {{ if gt .Code 0 }}{{ else }}{{ end }} "
-  powerline_symbol = ""
-  foreground = "p:white"
-  background = "p:blue"
-  background_templates = ["{{ if gt .Code 0 }}p:red{{ end }}"]
+  style = "diamond"
+  template = " {{ if gt .Code 0 }}{{ .Code }} {{ else }}{{ end }} "
+  trailing_diamond = ""
+  background = "p:green"
+
+  background_templates = ["{{ if eq .Code 0 }}p:green{{ else }}p:red{{ end }}"]
+  foreground_templates = ["{{ if eq .Code 0 }}p:black{{ else }}p:white{{ end }}"]
 
     [blocks.segments.properties]
     always_enabled = true
