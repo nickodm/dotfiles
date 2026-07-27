@@ -13,6 +13,11 @@ bindkey ^H vi-backward-kill-word
 # --- ENVIRONMENT VARIABLES ---
 
 export PATH="$HOME/.local/bin:$PATH"
+
+if command -v "pnpm" > /dev/null 2>&1; then
+    export PATH="$PATH:$HOME/.local/share/pnpm/bin"
+fi
+
 export EDITOR="vim"
 export STOW_DIR="$HOME/dotfiles"
 
@@ -45,6 +50,12 @@ dot-zsh () {
 
 if [[ $(tty) == /dev/tty* ]]; then
     omptheme simple
+
+    if command -v fastfetch > /dev/null 2>&1 then
+        fastfetch
+    elif command -v neofetch > /dev/null 2>&1 then
+        neofetch
+    fi
 else
     omptheme main
 fi
