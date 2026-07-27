@@ -22,7 +22,7 @@ background = "transparent"
 
 [transient_prompt]
 template = """\
-{{ if eq .Code 0 }}<p:black,p:green>{{ else }}<p:white,p:red>{{ .Code }}{{ end }} {{ .PWD }} </>\
+{{ if eq .Code 0 }}<p:black,p:green>{{ else }}<p:white,p:red>{{ .Code }}{{ end }} {{ base .PWD }} </>\
 {{ if eq .Code 0 }}<p:green,transparent>{{ else }}<p:red,transparent>{{ end }}</> \
 """
 
