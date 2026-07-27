@@ -340,8 +340,15 @@ for key, direction in pairs(directions) do
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ direction = direction }), { release = true })
     -- Move window
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = direction }), { release = true })
-    -- Resize window
 end
+
+local resizeFactor = 200
+
+-- Resize window
+hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.resize({ x = -resizeFactor, y = 0,             relative = true }))
+hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.resize({ x = resizeFactor,  y = 0,             relative = true }))
+hl.bind(mainMod .. " + CTRL + K", hl.dsp.window.resize({ x = 0,             y = resizeFactor,  relative = true }))
+hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.resize({ x = 0,             y = -resizeFactor, relative = true }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
