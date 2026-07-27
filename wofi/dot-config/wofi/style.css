@@ -1,0 +1,25 @@
+@define-color black     #000000;
+@define-color white     #FFFFFF;
+@define-color red       #c02c28;
+@define-color green     #2ec27e;
+@define-color yellow    #f5c211;
+@define-color blue      #1e78e4;
+@define-color magenta   #9841bb;
+@define-color cyan      #0ab9dc;
+@define-color orange    #F07623;
+
+#window {
+    background-color: transparent;
+}
+
+#outer-box {
+    background-color: rgba(12, 12, 12, 0.8);
+}
+
+#outer-box, #entry {
+    border-radius: 50px;
+}
+
+#entry:selected {
+    background-color: @blue;
+}
