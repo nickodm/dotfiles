@@ -1,0 +1,5 @@
+#! /usr/bin/bash
+
+killall mako 
+mako 1> /dev/null 2> /dev/null &
+notify-send "Mako" "Reloaded Mako"
