@@ -1,0 +1,91 @@
+@define-color black     #000000;
+@define-color white     #FFFFFF;
+@define-color red       #c02c28;
+@define-color green     #2ec27e;
+@define-color yellow    #f5c211;
+@define-color blue      #1e78e4;
+@define-color magenta   #9841bb;
+@define-color cyan      #0ab9dc;
+@define-color orange    #F07623;
+@define-color gray      #808080;
+
+* {
+    font-size: 14px;
+    border-radius: 10px;
+    margin: 0px 2px;
+    padding: 0px 10px;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+}
+
+#workspaces {
+    background-color: @blue;
+    margin: 0px;
+    padding: 0px;
+}
+
+#workspaces button {
+    background-color: @blue;
+    margin: 0px;
+    padding: 0px;
+}
+
+#workspaces button.active {
+    background-color: @orange;
+}
+
+#workspaces button.empty {
+    color: @gray;
+}
+
+#cpu,#memory {
+    background-color: @magenta;
+}
+
+#clock {
+    background-color: @blue;
+}
+
+#network {
+    background-color: @blue;
+}
+
+#pulseaudio {
+    background-color: @cyan;
+    color: @black;
+}
+
+#battery.charging, #battery.plugged {
+    background-color: @blue;
+}
+
+#battery.warning:not(.charging) {
+    background-color: @orange;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red;
+}
+
+#battery.full {
+    background-color: @green;
+    color: #000000;
+}
+
+#idle_inhibitor.activated {
+    background-color: @green;
+    color: @black;
+}
+
+#idle_inhibitor.deactivated {
+    background-color: @red;
+}
+
+#tray {
+    background-color: @magenta;
+    color: @black;
+    padding: 0px;
+}

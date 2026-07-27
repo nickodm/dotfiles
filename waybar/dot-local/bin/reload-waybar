@@ -1,0 +1,4 @@
+#! /usr/bin/bash
+
+killall waybar
+waybar 1> /dev/null 2> /dev/null &

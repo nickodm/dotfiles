@@ -1,0 +1,55 @@
+{
+    "layer": "top",
+    "modules-left": ["hyprland/workspaces", "tray"],
+    "modules-center": ["clock#date", "clock#time", "idle_inhibitor"],
+    "modules-right": ["cpu", "memory", "network", "pulseaudio", "battery"],
+    "hyprland/workspaces": {
+        "format": "<b>{name}</b>",
+        "format-window-separator": "",
+        "persistent-workspaces": {
+            "*": 2
+        }
+    },
+    "cpu": {
+        "format": "{usage}% "
+    },
+    "memory": {
+        "format": "{percentage}% "
+    },
+    "network": {
+        "format": "{essid}",
+        "format-wifi": "<b>{essid}</b> {icon}",
+        "format-ethernet": " ",
+        "format-disconnected": "󰤮 ",
+        "tooltip-format-ethernet": "Wired  ",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+    },
+    "pulseaudio": {
+        "format": "<b>{volume}%</b>",
+        "format-bluetooth": "<b>{desc} {volume}%</b> 󰂯",
+        "scroll-step": 5,
+        "on-click": "pavucontrol"
+    },
+    "battery": {
+        "format": "<b>{capacity}%</b> {icon}",
+        "format-charging": "{capacity}% 󰂄", 
+        "format-plugged": "{capacity}% 󰂄", 
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "states": {
+            "warning": 50,
+            "critical": 30
+        }
+    },
+    "clock#date": {
+        "format": "<b>{:%a. %d-%m-%Y}</b> "
+    },
+    "clock#time": {
+        "format": "<b>{:%H:%M}</b> 󰥔"
+    },
+    "idle_inhibitor": {
+        "format": " "
+    },
+    "tray": {
+        "spacing": 5
+    }
+}
