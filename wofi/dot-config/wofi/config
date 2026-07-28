@@ -1,4 +1,7 @@
 stylesheet=style.css
 allow_images=true
+allow_markup=true
 prompt=Launch
+no_actions=true
+# sort_order=alphabetical
 insensitive=true

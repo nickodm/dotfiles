@@ -8,18 +8,54 @@
 @define-color cyan      #0ab9dc;
 @define-color orange    #F07623;
 
+/* The window itself */
 #window {
     background-color: transparent;
+    font: Meslo 14 bold;
 }
 
+#outer-box, #entry, #input {
+    border-radius: 20px;
+}
+
+/* The box that contains everything */
 #outer-box {
     background-color: rgba(12, 12, 12, 0.8);
+    border: 2px solid @blue;
 }
 
-#outer-box, #entry {
-    border-radius: 50px;
+/* The search bar */
+#input {
+    background-color: transparent;
+    border: 2px solid @orange;
+    margin: 5px;
 }
 
+/* The scrolled window containing all of the entries */
+#scroll {}
+
+/* The box containing all of the entries */
+#inner-box {
+    
+}
+
+/* All images in entries displayed in image mode */
+#img {
+    margin: 0px 10px;
+}
+
+/* All the text entries */
+#text {}
+
+/* All entries */
+#entry {}
+
+/* All selected entries */
 #entry:selected {
-    background-color: @blue;
+    background: transparent;
+    border: 2px solid @cyan;
+    margin: 5px;
 }
+
+/* All boxes shown when expanding entries with multiple actions */
+#expander-box {}
