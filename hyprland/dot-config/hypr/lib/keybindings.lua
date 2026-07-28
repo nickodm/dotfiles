@@ -48,8 +48,8 @@ local function load()
     -- Resize window
     hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.resize({ x = -resizeFactor, y = 0,             relative = true }))
     hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.resize({ x = resizeFactor,  y = 0,             relative = true }))
-    hl.bind(mainMod .. " + CTRL + K", hl.dsp.window.resize({ x = 0,             y = resizeFactor,  relative = true }))
-    hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.resize({ x = 0,             y = -resizeFactor, relative = true }))
+    hl.bind(mainMod .. " + CTRL + K", hl.dsp.window.resize({ x = 0,             y = -resizeFactor, relative = true }))
+    hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.resize({ x = 0,             y = resizeFactor,  relative = true }))
 
     -- Switch workspaces with mainMod + [0-9]
     -- Move active window to a workspace with mainMod + SHIFT + [0-9]
