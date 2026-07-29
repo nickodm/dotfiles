@@ -27,7 +27,6 @@
             "format-plugged": "<b>{capacity}%</b> 󱐋", 
             "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
             "states": {
-                "full": 100,
                 "warning": 50,
                 "critical": 30
             }
