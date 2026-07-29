@@ -52,7 +52,8 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background-color: @orange;
+    background-color: @green;
+    color: @black;
 }
 
 #cpu,#memory {
