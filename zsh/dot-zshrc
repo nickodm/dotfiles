@@ -32,6 +32,8 @@ command_exists "nvim" && alias vim="nvim"
 
 # --- CUSTOM FUNCTIONS ---
 
+command_exists "oh-my-posh" && export PROMPT="[%n@%m] %~ %# "
+
 omptheme() {
     if ! command_exists "oh-my-posh"; then
         echo "Error: oh-my-posh is not installed." >&2
