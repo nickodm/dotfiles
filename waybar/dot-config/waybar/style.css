@@ -35,6 +35,13 @@ window#waybar {
 
 #workspaces .taskbar-window {
     margin: 0px;
+    margin-left: 2px;
+    padding: 0px;
+    min-width: 0px;
+}
+
+#workspaces .taskbar-window * {
+    margin: 0px 4px;
     padding: 0px;
     min-width: 0px;
 }
