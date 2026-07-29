@@ -27,7 +27,7 @@
 /* The search bar */
 #input {
     background-color: transparent;
-    border: 2px solid @orange;
+    border: 2px solid @cyan;
     margin: 5px;
 }
 
@@ -53,7 +53,7 @@
 /* All selected entries */
 #entry:selected {
     background: transparent;
-    border: 2px solid @cyan;
+    border: 2px solid @green;
     margin: 5px;
 }
 
