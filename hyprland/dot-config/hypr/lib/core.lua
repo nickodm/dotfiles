@@ -14,6 +14,7 @@ hl.env("QT_QPA_PLATFORM", "wayland")
 return {
     mainMod     = "SUPER",
     fileManager = "dolphin",
+    browser     = "firefox",
     screenshot  = "flameshot gui",
     bar         = "waybar",
     noti        = "mako",
