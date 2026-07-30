@@ -1,4 +1,2 @@
 #! /usr/bin/bash
-
-killall waybar > /dev/null 2>&1
-waybar > /dev/null 2>&1 &
+killall -SIGUSR2 "waybar"
