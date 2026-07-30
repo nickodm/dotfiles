@@ -6,6 +6,7 @@ vim.opt.expandtab = true
 
 -- Set relative numbers
 vim.opt.relativenumber = true
+vim.opt.number = true
 
 -- Disable background color
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE', ctermbg = 'NONE' })
