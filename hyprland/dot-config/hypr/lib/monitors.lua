@@ -1,3 +1,4 @@
+--- Monitors module
 
 local function isLidClosed()
     local file = io.open("/proc/acpi/button/lid/LID/state", "r")
@@ -5,11 +6,6 @@ local function isLidClosed()
     file:close()
 
     return state == "state:      closed" 
-end
-
-local function reload()
-    hl.exec_cmd("hyprctl reload")
-    hl.exec_cmd("~/.local/bin/reload-waybar")
 end
 
 local builtin = {
@@ -21,11 +17,28 @@ local builtin = {
 }
 
 local external = {
-    output   = "HDMI-1-0",
+    output   = "HDMI-A-1",
     mode     = "preferred",
     position = "auto",
     scale    = "auto",
 }
+
+local mirroring = false
+
+local function toggleMirroring()
+    local src = ""
+
+    if not mirroring then
+        src = builtin.output
+    end
+
+    hl.monitor({ output = external.output, mirror = src })
+    mirroring = not mirroring
+end
+
+local function reload()
+    hl.exec_cmd("~/.local/bin/reload-waybar")
+end
 
 local function load()
     hl.monitor(builtin)
@@ -51,5 +64,6 @@ end
 return {
     builtin  = builtin,
     external = external,
+    toggleMirroring = toggleMirroring,
     load     = load
 }

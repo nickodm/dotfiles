@@ -1,6 +1,7 @@
 --- Hyprland keybindings.
 
 local core = require("lib.core")
+local monitors = require("lib.monitors")
 local mainMod = core.mainMod
 
 local function systemKeys()
@@ -8,6 +9,8 @@ local function systemKeys()
     hl.bind(mainMod .. " + SHIFT + DELETE", hl.dsp.exec_cmd("systemctl hibernate"))
     -- Shutdown Hyprland
     hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+
+    hl.bind(mainMod .. " + P", monitors.toggleMirroring)
 
     -- Brightness
     hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
@@ -49,8 +52,6 @@ end
 
 local function windowKeys()
     hl.bind(mainMod .. " + Y", hl.dsp.window.float({ action = "toggle" }))
-    hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-
     hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 
     local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
