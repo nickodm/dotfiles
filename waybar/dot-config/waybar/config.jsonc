@@ -63,7 +63,7 @@
         "layer": "top",
         "position": "bottom",
         "modules-left": ["hyprland/workspaces"],
-        "modules-right": ["mpd", "cpu", "memory"],
+        "modules-right": ["temperature", "cpu", "memory"],
         "hyprland/workspaces": {
             "format": "<b>{name}</b>{windows}",
             "format-window-separator": "",
@@ -72,14 +72,17 @@
                 "enable": true
             }
         },
+        "temperature": {
+            "format": "<b>{temperatureC}°C</b> {icon}",
+            "format-icons": ["", "", "", "", ""],
+            "warning-thereshold": 60,
+            "critical-thereshold": 80
+        },
         "cpu": {
             "format": "{usage}% "
         },
         "memory": {
             "format": "{percentage}% "
-        },
-        "mpd": {
-            
         }
     }
 ]

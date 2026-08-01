@@ -81,6 +81,19 @@ window#waybar > box {
     min-width: 0px;
 }
 
+#temperature {
+    background-color: @green;
+    color: @black;
+}
+
+#temperature.warning {
+    background-color: @orange;
+}
+
+#temperature.critical {
+    background-color: @red;
+}
+
 #cpu,#memory {
     background-color: @magenta;
 }
