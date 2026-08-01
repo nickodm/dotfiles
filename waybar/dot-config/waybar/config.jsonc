@@ -28,7 +28,9 @@
             "format-muted": " ",
             "format-icons": [" ", " ", " "],
             "scroll-step": 5,
-            "on-click": "pavucontrol"
+            "on-click": "pavucontrol",
+            // Toggle mute of the current sink
+            "on-click-right": "wpctl set-mute $(wpctl list audio sinks | grep \\* | awk '{print $1}') toggle"
         },
         "battery": {
             "format": "<b>{capacity}%</b>",
