@@ -1,0 +1,94 @@
+# Theme made as simple as posible, based on the prompt of zsh in the Arch Linux Live ISO.
+
+console_title_template = "{{ .UserName }}@{{ .HostName }}:{{ .PWD }}"
+version = 3
+final_space = true
+
+[palette]
+black = "#262B44"
+blue = "#4B95E9"
+green = "#59C9A5"
+orange = "#F07623"
+red = "#D81E5B"
+white = "#FFFFFF"
+yellow = "#F3AE35"
+cyan = "#0ab9dc"
+
+[var]
+# The symbol used as prompt.
+# [nicko@omen]~% fastfetch
+#              ^
+Prompt = "%"
+
+[secondary_prompt]
+template = "{{ if gt .Code 0 }}<p:red>{{ else }}<p:blue>{{ end }}{{ .Var.Prompt }}</> "
+background = "transparent"
+
+[transient_prompt]
+template = "{{ base .PWD }}{{ if ne .Code 0 }}<p:red>{{ else }}<p:blue>{{ end }}{{ .Var.Prompt }}</> "
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+
+    [[blocks.segments]]
+    type = "session"
+    style = "plain"
+    template = "<p:blue>[</>{{ .UserName }}<p:blue>@</>{{ .HostName }}<p:blue>]</>"
+
+    [[blocks.segments]]
+    type = "path"
+    style = "plain"
+    template = "{{ base .PWD }}"
+
+        [blocks.segments.options]
+        style = "folder"
+
+    #* ----- STATUS ------
+    [[blocks.segments]]
+    type = "status"
+    style = "plain"
+    template = "{{ .Var.Prompt }}"
+    foreground = "p:blue"
+    foreground_templates = [ "{{ if gt .Code 0 }}p:red{{ end }}" ]
+
+        [blocks.segments.properties]
+        always_enabled = true
+
+[[blocks]]
+type = "rprompt"
+align = "right"
+
+    [[blocks.segments]]
+    type = "battery"
+    style = "plain"
+    template = "({{ if ne \"Full\" .State.String }}{{ .Percentage }}{{ end }}%)"
+    foreground = "p:green"
+    foreground_templates = [
+        "{{ if eq \"Full\" .State.String }}p:green{{ end }}",
+        "{{ if eq \"Charging\" .State.String }}p:blue{{ end }}",
+        "{{ if gt 50 .Percentage }}p:green{{ end }}",
+        "{{ if gt 30 .Percentage }}p:orange{{ end }}",
+        "{{ if ge 0  .Percentage }}p:red{{ end }}"
+    ]
+
+[[tooltips]]
+type = "python"
+tips = [ "python3", "pyenv", "py", "poetry", "pip" ]
+style = "plain"
+template = "(python {{ if .Venv }}{{ .Full }}{{ end }})"
+
+[[tooltips]]
+type = "git"
+tips = [ "git" ]
+style = "plain"
+template = "({{ trunc 25 .HEAD }})"
+foreground = "p:orange"
+
+    [tooltips.properties]
+    branch_icon = "" # Hide the git icon
+    commit_icon = ""
+    local_changes_icon = ""
+    git_icon = ""
+    fetch_status = false
+    fetch_upstream_icon = false
