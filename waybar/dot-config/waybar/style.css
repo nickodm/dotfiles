@@ -16,9 +16,30 @@
     padding: 0px 10px;
 }
 
-window#waybar {
+box {
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+}
+
+window#waybar, window#waybar > box {
     background-color: transparent;
     border-radius: 100px;
+    padding: 0px;
+}
+
+window#waybar > box {
+    padding: 0px 8px;
+}
+
+.modules-right {
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+.modules-left {
+    margin-left: 0px;
+    padding-left: 0px;
 }
 
 #workspaces {
@@ -28,9 +49,23 @@ window#waybar {
 
 #workspaces button {
     background-color: @blue;
-    padding: 0px;
+    padding: 0px 8px;
     margin: 0px 2px;
     min-width: 0px;
+}
+
+#workspaces button.empty {
+    padding: 0px 10px;
+}
+
+#workspaces button.active {
+    background-color: @green;
+    color: @black;
+}
+
+#workspaces button label {
+    padding: 0px;
+    margin: 0px;
 }
 
 #workspaces .taskbar-window {
@@ -44,16 +79,6 @@ window#waybar {
     margin: 0px 4px;
     padding: 0px;
     min-width: 0px;
-}
-
-#workspaces button label {
-    padding: 0px;
-    margin: 0px;
-}
-
-#workspaces button.active {
-    background-color: @green;
-    color: @black;
 }
 
 #cpu,#memory {
