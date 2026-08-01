@@ -30,24 +30,26 @@ local function appKeys()
 end
 
 local function workspaceKeys()
-    hl.bind(mainMod .. " + TAB + H", hl.dsp.focus({ workspace = "-1" }))
-    hl.bind(mainMod .. " + TAB + L", hl.dsp.focus({ workspace = "+1" }))
-    hl.bind(mainMod .. " + TAB", hl.dsp.focus({ workspace = "previous" }), { release = true })
+    -- Switch workspace
+    hl.bind(mainMod .. " + PAGE_UP", hl.dsp.focus({ workspace = "+1" }))
+    hl.bind(mainMod .. " + PAGE_DOWN", hl.dsp.focus({ workspace = "-1" }))
 
+    -- Special workspaces
+    hl.bind(mainMod .. " + HOME", hl.dsp.workspace.toggle_special("magic"))
+    hl.bind(mainMod .. " + SHIFT + HOME", hl.dsp.window.move({ workspace = "special:magic" }))
+
+    -- Workspace bindings
     for i = 1, 10 do
         local key = i % 10 -- 10 maps to key 0
-        hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+        hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i }))
         hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
     end
 
     -- Move the workspace to another monitor
     hl.bind(mainMod .. " + SHIFT + TAB", hl.dsp.workspace.move({ monitor = "+1" }), { release = true })
+
     -- Swap monitors
     hl.bind(mainMod .. " + W", hl.dsp.workspace.swap_monitors({ monitor1 = "eDP-1", monitor2 = "HDMI-A-1" }))
-
-    -- Example special workspace (scratchpad)
-    -- hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-    -- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 end
 
 local function windowKeys()
