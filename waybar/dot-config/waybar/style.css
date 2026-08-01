@@ -63,6 +63,11 @@ window#waybar > box {
     color: @black;
 }
 
+#workspaces button.special {
+    background-color: @cyan;
+    color: @black;
+}
+
 #workspaces button label {
     padding: 0px;
     margin: 0px;

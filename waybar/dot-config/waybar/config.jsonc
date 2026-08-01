@@ -68,6 +68,8 @@
             "format": "<b>{name}</b>{windows}",
             "format-window-separator": "",
             "expand": true,
+            "show-special": true,
+            "special-visible-only": true,
             "workspace-taskbar": {
                 "enable": true
             }
