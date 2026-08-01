@@ -3,7 +3,7 @@
         "layer": "top",
         "modules-left": ["tray"],
         "modules-center": ["clock#date", "clock#time", "idle_inhibitor"],
-        "modules-right": ["network", "pulseaudio", "battery"],
+        "modules-right": ["network", "bluetooth", "pulseaudio", "battery"],
         "network": {
             "format": "{essid}",
             "format-wifi": "<b>{essid}</b> {icon}",
@@ -11,6 +11,16 @@
             "format-disconnected": "󰤮 ",
             "tooltip-format-ethernet": "Wired  ",
             "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+        },
+        "bluetooth": {
+            "format": "󰂯",
+            "format-disabled": "󰂲",
+            "format-connected": "<b>{device_alias}</b> 󰂯",
+            "tooltip-format-off": "<b>OFF</b>",
+            "tooltip-format-on": "<b>ON</b>",
+            "tooltip-format-connected": "<b>{device_alias} ({device_battery_percentage}%)</b> 󰂯",
+            "on-click": "blueman-manager",
+            "on-click-right": "rfkill toggle bluetooth"
         },
         "pulseaudio": {
             "format": "<b>{volume}%</b> {icon}",

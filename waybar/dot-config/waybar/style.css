@@ -68,6 +68,15 @@ window#waybar {
     background-color: @blue;
 }
 
+#bluetooth {
+    background-color: @blue;
+}
+
+#bluetooth .off, #bluetooth.disabled {
+    background-color: @red;
+    color: @white;
+}
+
 #pulseaudio {
     background-color: @cyan;
     color: @black;
