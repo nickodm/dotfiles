@@ -9,7 +9,10 @@
             "format-wifi": "<b>{essid}</b> {icon}",
             "format-ethernet": " ",
             "format-disconnected": "󰤮 ",
+            "format-disabled": "󰤮 ",
             "tooltip-format-ethernet": "Wired  ",
+            "tooltip-format-disconnected": "Disconnected 󰤮 ",
+            "tooltip-format-disabled": "Disabled 󰤮 ",
             "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
         },
         "bluetooth": {

@@ -68,6 +68,14 @@ window#waybar {
     background-color: @blue;
 }
 
+#network.disconnected {
+    background-color: @orange;
+}
+
+#network.disabled {
+    background-color: @red;
+}
+
 #bluetooth {
     background-color: @blue;
 }
