@@ -8,7 +8,7 @@ local function systemKeys()
     hl.bind(mainMod .. " + DELETE", hl.dsp.exec_cmd("hyprlock"))
     hl.bind(mainMod .. " + SHIFT + DELETE", hl.dsp.exec_cmd("systemctl hibernate"))
     -- Shutdown Hyprland
-    hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+    hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
     hl.bind(mainMod .. " + P", monitors.toggleMirroring)
 
