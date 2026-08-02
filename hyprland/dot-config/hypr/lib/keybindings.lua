@@ -81,9 +81,20 @@ local function windowKeys()
         hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = direction }), { release = true })
     end
 
-    -- Move/resize windows with mainMod + LMB/RMB and dragging
-    hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
-    hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+    local mouseKeys = {
+        lclick = "mouse:272",
+        rclick = "mouse:273",
+        scroll = "mouse:274",
+        down   = "mouse:275",
+        up     = "mouse:276"
+    }
+
+    hl.bind(mainMod .. " + " .. mouseKeys.lclick, hl.dsp.window.drag(),   { mouse = true })
+    hl.bind(mainMod .. " + " .. mouseKeys.rclick, hl.dsp.window.resize(), { mouse = true })
+    hl.bind(mainMod .. " + " .. mouseKeys.scroll, hl.dsp.window.float(),  { mouse = true })
+
+    hl.bind(mouseKeys.down, hl.dsp.send_shortcut({ mods = "", key = "XF86Copy" }), { mouse = true })
+    hl.bind(mouseKeys.up, hl.dsp.send_shortcut({ mods = "", key = "XF86Paste" }), { mouse = true })
 end
 
 local function mediaKeys()
