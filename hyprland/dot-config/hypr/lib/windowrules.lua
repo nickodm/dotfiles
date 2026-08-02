@@ -48,6 +48,14 @@ local function load()
         no_anim = true,
         suppress_event = "maximize"
     })
+
+    hl.window_rule({
+        name = "floating_calculator",
+        match = { initial_title = "^Qalculate!$" },
+        float = true,
+        center = true,
+        size = {802, 600}
+    })
 end
 
 return {

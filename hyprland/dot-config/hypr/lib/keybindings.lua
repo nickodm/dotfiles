@@ -25,6 +25,7 @@ local function appKeys()
     hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(core.browser))
     hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(core.terminal))
     hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("copyq show"))
+    hl.bind("XF86CALCULATOR", hl.dsp.exec_cmd(core.calculator))
     hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(core.screenshot))
     hl.bind("PRINT", hl.dsp.exec_cmd(core.screenshot))
 end

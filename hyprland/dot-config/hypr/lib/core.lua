@@ -21,6 +21,7 @@ return {
     terminal    = "alacritty",
     wallpaper   = "hyprpaper",
     menu        = "wofi -S drun",
+    calculator  = "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=qalculate-gtk io.github.Qalculate",
     
     lang        = lang
 }
