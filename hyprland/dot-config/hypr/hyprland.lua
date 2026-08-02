@@ -16,6 +16,9 @@ permissions.load()
 windowrules.load()
 autostart.load()
 
+hl.on("config.reloaded", function ()
+    hl.exec_cmd("notify-send \"Hyprland\" \"Config reloaded.\"")
+end)
 
 hl.config({
     misc = {
