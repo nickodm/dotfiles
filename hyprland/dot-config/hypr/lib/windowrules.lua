@@ -56,6 +56,13 @@ local function load()
         center = true,
         size = {802, 600}
     })
+
+    hl.window_rule({
+        name = "floating_clipboard",
+        match = { class = "com.github.hluk.copyq" },
+        float = true,
+        center = true
+    })
 end
 
 return {
