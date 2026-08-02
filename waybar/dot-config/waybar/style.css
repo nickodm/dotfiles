@@ -80,10 +80,33 @@ window#waybar > box {
     min-width: 0px;
 }
 
-#workspaces .taskbar-window * {
+/* Taskbar & system tray icons */
+#tray *,
+#workspaces .taskbar-window > * {
     margin: 0px 4px;
     padding: 0px;
     min-width: 0px;
+}
+
+#tray {
+    background-color: @magenta;
+    color: @black;
+    padding: 0px 8px;
+}
+
+#tray menu {
+    background-color: @black;
+    border: 2px solid @magenta;
+    padding: 8px;
+}
+
+#tray menu menuitem {
+    margin: 4px 0px;
+    border-radius: 5px;
+}
+
+#tray menu menuitem:hover {
+    background-color: @magenta;
 }
 
 #temperature {
@@ -168,10 +191,4 @@ window#waybar > box {
 
 #idle_inhibitor.deactivated {
     background-color: @red;
-}
-
-#tray {
-    background-color: @magenta;
-    color: @black;
-    padding: 0px;
 }
