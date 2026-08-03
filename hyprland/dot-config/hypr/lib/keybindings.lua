@@ -57,7 +57,7 @@ local function windowKeys()
     hl.bind(mainMod .. " + Y", hl.dsp.window.float({ action = "toggle" }))
     hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 
-    local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
+    hl.bind(mainMod .. " + X", hl.dsp.window.close())
 
     local resizeFactor = 200
 
