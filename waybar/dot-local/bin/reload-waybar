@@ -1,2 +1,14 @@
 #! /usr/bin/bash
-killall -SIGUSR2 "waybar"
+
+if pidof -q "waybar"; then
+    killall -SIGUSR2 "waybar"
+    notify-send "Waybar" "Waybar reloaded."
+else
+    waybar > /dev/null 2>&1 &
+
+    if pidof -q "waybar"; then
+        notify-send "Waybar" "Waybar initialized."
+    else
+        notify-send "Waybar" "Error while loading waybar."
+    fi
+fi
