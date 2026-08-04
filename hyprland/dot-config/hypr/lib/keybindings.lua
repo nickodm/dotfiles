@@ -58,6 +58,7 @@ local function windowKeys()
     hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 
     hl.bind(mainMod .. " + X", hl.dsp.window.close())
+    hl.bind(mainMod .. " + SHIFT + X", hl.dsp.window.kill())
 
     local resizeFactor = 200
 
