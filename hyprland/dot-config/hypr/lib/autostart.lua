@@ -7,6 +7,7 @@ local function autostart()
     hl.exec_cmd(core.noti)
     hl.exec_cmd("hyprsunset")
     hl.exec_cmd("copyq --start-server")
+    hl.exec_cmd("kdeconnectd")
 end
 
 local function load()
