@@ -63,6 +63,15 @@ local function load()
         float = true,
         center = true
     })
+
+    hl.window_rule({
+        name = "floating_keepass_password_generator",
+        match = { class = "org.keepassxc.KeePassXC", title = "Generate Password" },
+        float = true,
+        center = true,
+        -- Minimum size
+        size = {612, 398}
+    })
 end
 
 return {
