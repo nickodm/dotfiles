@@ -19,6 +19,23 @@ end
 
 -- App keybindings
 local function appKeys()
+    appBinds = {
+        ["K"] = "keepassxc",
+        ["O"] = "obsidian",
+        ["R"] = "rstudio",
+        ["Z"] = "zed"
+    }
+
+    hl.define_submap("apps", function()
+        for key, app in pairs(appBinds) do
+            hl.bind(key, hl.dsp.exec_cmd(app))
+        end
+
+        hl.bind("escape", hl.dsp.submap("reset"))
+    end)
+
+    hl.bind(mainMod .. " + A", hl.dsp.submap("apps"))
+
     hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(core.menu))
 
     hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(core.fileManager))
