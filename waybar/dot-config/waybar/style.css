@@ -115,16 +115,8 @@ window#waybar > box {
 }
 
 #temperature {
-    background-color: @green;
-    color: @black;
-}
-
-#temperature.warning {
-    background-color: @orange;
-}
-
-#temperature.critical {
-    background-color: @red;
+    background-color: @magenta;
+    color: @white;
 }
 
 #cpu,#memory {

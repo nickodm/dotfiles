@@ -78,7 +78,7 @@
             "format": "<b>{}</b>"
         },
         "temperature": {
-            "format": "<b>{temperatureC}°C</b> {icon}",
+            "format": "{temperatureC}°C {icon}",
             "format-icons": ["", "", "", "", ""],
             "warning-thereshold": 60,
             "critical-thereshold": 80
