@@ -23,7 +23,8 @@ local function appKeys()
         ["K"] = "keepassxc",
         ["O"] = "obsidian",
         ["R"] = "rstudio",
-        ["Z"] = "zed"
+        ["W"] = core.whatsapp,
+        ["Z"] = "zed",
     }
 
     hl.define_submap("apps", function()
