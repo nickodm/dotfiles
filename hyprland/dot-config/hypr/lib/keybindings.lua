@@ -52,6 +52,9 @@ local function workspaceKeys()
     hl.bind(mainMod .. " + PAGE_UP", hl.dsp.focus({ workspace = "+1" }))
     hl.bind(mainMod .. " + PAGE_DOWN", hl.dsp.focus({ workspace = "-1" }))
 
+    hl.bind(mainMod .. " + SHIFT + PAGE_UP", hl.dsp.window.move({ workspace = "+1" }))
+    hl.bind(mainMod .. " + SHIFT + PAGE_DOWN", hl.dsp.window.move({ workspace = "-1" }))
+
     -- Special workspaces
     hl.bind(mainMod .. " + HOME", hl.dsp.workspace.toggle_special("magic"))
     hl.bind(mainMod .. " + SHIFT + HOME", hl.dsp.window.move({ workspace = "special:magic" }))
