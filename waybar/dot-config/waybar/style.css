@@ -42,6 +42,11 @@ window#waybar > box {
     padding-left: 0px;
 }
 
+#submap {
+    background-color: @orange;
+    color: @white;
+}
+
 #workspaces {
     margin: 0px;
     padding: 0px;

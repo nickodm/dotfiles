@@ -62,7 +62,7 @@
     {
         "layer": "top",
         "position": "bottom",
-        "modules-left": ["hyprland/workspaces"],
+        "modules-left": ["hyprland/submap", "hyprland/workspaces"],
         "modules-right": ["temperature", "cpu", "memory"],
         "hyprland/workspaces": {
             "format": "<b>{name}</b>{windows}",
@@ -73,6 +73,9 @@
             "workspace-taskbar": {
                 "enable": true
             }
+        },
+        "hyprland/submap": {
+            "format": "<b>{}</b>"
         },
         "temperature": {
             "format": "<b>{temperatureC}°C</b> {icon}",
