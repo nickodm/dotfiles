@@ -22,8 +22,8 @@
             "tooltip-format-off": "<b>OFF</b>",
             "tooltip-format-on": "<b>ON</b>",
             "tooltip-format-connected": "<b>{device_alias} ({device_battery_percentage}%)</b> 󰂯",
-            "on-click": "blueman-manager",
-            "on-click-right": "rfkill toggle bluetooth"
+            "on-click": "rfkill toggle bluetooth",
+            "on-click-right": "blueman-manager"
         },
         "pulseaudio": {
             "format": "<b>{volume}%</b> {icon}",
