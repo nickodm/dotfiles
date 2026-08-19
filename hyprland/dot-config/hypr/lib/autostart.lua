@@ -8,6 +8,7 @@ local function autostart()
     hl.exec_cmd("hyprsunset")
     hl.exec_cmd("copyq --start-server")
     hl.exec_cmd("kdeconnectd")
+    hl.exec_cmd("systemctl --user start hyprland-session.target")
 end
 
 local function load()
