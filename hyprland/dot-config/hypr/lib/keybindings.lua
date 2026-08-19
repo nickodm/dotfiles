@@ -20,6 +20,8 @@ end
 -- App keybindings
 local function appKeys()
     appBinds = {
+        ["B"] = core.browser,
+        ["E"] = core.fileManager,
         ["K"] = "keepassxc",
         ["O"] = "obsidian",
         ["R"] = "rstudio",
@@ -39,8 +41,6 @@ local function appKeys()
 
     hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(core.menu))
 
-    hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(core.fileManager))
-    hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(core.browser))
     hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(core.terminal))
     hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(core.clipboard))
     hl.bind("XF86CALCULATOR", hl.dsp.exec_cmd(core.calculator))
