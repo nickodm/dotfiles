@@ -6,7 +6,7 @@ local mainMod = core.mainMod
 
 local function systemKeys()
     hl.bind(mainMod .. " + DELETE", hl.dsp.exec_cmd("hyprlock"))
-    hl.bind(mainMod .. " + SHIFT + DELETE", hl.dsp.exec_cmd("systemctl hibernate"))
+    hl.bind(mainMod .. " + SHIFT + DELETE", hl.dsp.exec_cmd("systemctl hibernate"), { locked = true })
     -- Shutdown Hyprland
     hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
