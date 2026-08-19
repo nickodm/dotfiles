@@ -27,9 +27,6 @@ command_exists "nvim" && export EDITOR="nvim" || export EDITOR="vim"
 
 alias ls="ls --color=auto"
 
-command_exists "tree" && alias tree="tree -C"
-command_exists "nvim" && alias vim="nvim"
-
 # --- CUSTOM FUNCTIONS ---
 
 command_exists "oh-my-posh" && export PROMPT="[%n@%m] %~ %# "
