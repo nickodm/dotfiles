@@ -20,11 +20,13 @@ end
 -- App keybindings
 local function appKeys()
     appBinds = {
+        ["C"] = "xdg-open https://calendar.google.com",
         ["B"] = core.browser,
         ["E"] = core.fileManager,
         ["K"] = "keepassxc",
         ["O"] = "obsidian",
         ["R"] = "rstudio",
+        ["S"] = "xdg-open https://siveducmd.uach.cl",
         ["W"] = core.whatsapp,
         ["Z"] = "zed",
     }
