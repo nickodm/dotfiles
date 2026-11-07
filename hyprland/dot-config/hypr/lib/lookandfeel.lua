@@ -99,6 +99,12 @@ local function load()
             fullscreen_on_one_column = true,
         },
     })
+
+    hl.config({
+        xwayland = {
+            force_zero_scaling = true
+        }
+    })
 end
 
 return {
