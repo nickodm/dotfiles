@@ -23,6 +23,9 @@ magenta = "#c061cb"
 cyan = "#4fd2fd"
 white = "#f6f5f4"
 
+[font]
+size = 10
+
 [font.normal]
 family = "Meslo LGM Nerd Font"
 style = "normal"
