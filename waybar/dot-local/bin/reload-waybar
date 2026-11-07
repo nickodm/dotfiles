@@ -1,10 +1,16 @@
 #! /usr/bin/bash
 
+start_waybar() {
+    waybar 2> /dev/null > /dev/null &
+}
+
 if pidof -q "waybar"; then
-    killall -SIGUSR2 "waybar"
+    killall "waybar"
+    systemd-cat -t reload-waybar <<< "KILLED WAYBAR"
+    start_waybar
     notify-send "Waybar" "Waybar reloaded."
 else
-    waybar > /dev/null 2>&1 &
+    start_waybar
 
     if pidof -q "waybar"; then
         notify-send "Waybar" "Waybar initialized."
