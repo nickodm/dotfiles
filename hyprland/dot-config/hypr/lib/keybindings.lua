@@ -119,6 +119,9 @@ local function windowKeys()
 
     hl.bind(mouseKeys.down, hl.dsp.send_shortcut({ mods = "", key = "XF86Copy" }), { mouse = true })
     hl.bind(mouseKeys.up, hl.dsp.send_shortcut({ mods = "", key = "XF86Paste" }), { mouse = true })
+
+    hl.bind(mainMod .. "+" .. mouseKeys.down, hl.dsp.focus({ workspace = "-1" }), { mouse = true })
+    hl.bind(mainMod .. "+" .. mouseKeys.up, hl.dsp.focus({ workspace = "+1" }), { mouse = true })
 end
 
 local function mediaKeys()
