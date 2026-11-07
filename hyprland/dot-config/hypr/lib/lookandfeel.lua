@@ -83,7 +83,7 @@ local function load()
             border_size = 2,
 
             col = {
-                active_border   = { colors = {colors.blue, colors.cyan, colors.green}, angle = 45 },
+                active_border   = colors.blue,
                 inactive_border = "rgba(595959aa)",
             },
 
