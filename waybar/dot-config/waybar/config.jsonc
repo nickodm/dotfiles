@@ -3,13 +3,18 @@
         "layer": "top",
         "modules-left": ["tray"],
         "modules-center": ["clock#date", "clock#time", "idle_inhibitor"],
-        "modules-right": ["network", "bluetooth", "pulseaudio", "battery"],
+        "modules-right": ["group/grnetwork", "pulseaudio", "battery"],
+        "group/grnetwork": {
+            "orientation": "inherit",
+            "modules": ["network", "bluetooth"]
+        },
         "network": {
             "format": "{essid}",
-            "format-wifi": "<b>{essid}</b> {icon}",
-            "format-ethernet": " ",
-            "format-disconnected": "󰤮 ",
-            "format-disabled": "󰤮 ",
+            "format-wifi": "{icon}",
+            "format-ethernet": "",
+            "format-disconnected": "󰤫",
+            "format-disabled": "󰤮",
+            "tooltip-format-wifi": "{essid}",
             "tooltip-format-ethernet": "Wired  ",
             "tooltip-format-disconnected": "Disconnected 󰤮 ",
             "tooltip-format-disabled": "Disabled 󰤮 ",
@@ -18,7 +23,7 @@
         "bluetooth": {
             "format": "󰂯",
             "format-disabled": "󰂲",
-            "format-connected": "<b>{device_alias}</b> 󰂯",
+            "format-connected": "󰂱",
             "tooltip-format-off": "<b>OFF</b>",
             "tooltip-format-on": "<b>ON</b>",
             "tooltip-format-connected": "<b>{device_alias} ({device_battery_percentage}%)</b> 󰂯",
@@ -36,7 +41,7 @@
             "on-click-right": "wpctl set-mute $(wpctl list audio sinks | grep \\* | awk '{print $1}') toggle"
         },
         "battery": {
-            "format": "<b>{capacity}%</b>",
+            "format": "<b>{capacity}%</b> {icon}",
             "format-full": "󰁹",
             "format-charging": "<b>{capacity}%</b> 󱐋", 
             "format-plugged": "<b>{capacity}%</b> 󱐋", 

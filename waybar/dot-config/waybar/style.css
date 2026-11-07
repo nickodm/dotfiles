@@ -7,13 +7,22 @@
 @define-color magenta   #9841bb;
 @define-color cyan      #0ab9dc;
 @define-color orange    #F07623;
-@define-color gray      #808080;
+@define-color gray      #333333;
 
 * {
-    font-size: 14px;
+    font-size: 13px;
     border-radius: 10px;
     margin: 0px 2px;
     padding: 0px 10px;
+}
+
+#grnetwork {
+    background-color: @gray;
+}
+
+#grnetwork * {
+    padding: 0px 4px;
+    margin: 0px 6px;
 }
 
 box {
@@ -23,7 +32,7 @@ box {
 }
 
 window#waybar, window#waybar > box {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 100px;
     padding: 0px;
 }
@@ -43,8 +52,9 @@ window#waybar > box {
 }
 
 #submap {
-    background-color: @orange;
+    background-color: @gray;
     color: @white;
+    border: 2px solid @orange;
 }
 
 #workspaces {
@@ -53,7 +63,7 @@ window#waybar > box {
 }
 
 #workspaces button {
-    background-color: @blue;
+    background-color: @gray;
     padding: 0px 8px;
     margin: 0px 2px;
     min-width: 0px;
@@ -64,13 +74,19 @@ window#waybar > box {
 }
 
 #workspaces button.active {
-    background-color: @green;
-    color: @black;
+    /* background-color: @blue; */
+    color: @white;
+    border: 2px solid @blue;
 }
 
 #workspaces button.special {
     background-color: @cyan;
     color: @black;
+}
+
+#workspaces button button * {
+    padding: 0px;
+    min-width: 0px;
 }
 
 #workspaces button label {
@@ -85,23 +101,28 @@ window#waybar > box {
     min-width: 0px;
 }
 
-/* Taskbar & system tray icons */
-#tray *,
 #workspaces .taskbar-window > * {
+    margin: 0px;
+    padding: 0px;
+    min-width: 0px;
+}
+
+/* Taskbar & system tray icons */
+#tray * {
     margin: 0px 4px;
     padding: 0px;
     min-width: 0px;
 }
 
 #tray {
-    background-color: @magenta;
-    color: @black;
+    background-color: @gray;
+    color: @white;
     padding: 0px 8px;
 }
 
 #tray menu {
     background-color: @black;
-    border: 2px solid @magenta;
+    border: 2px solid @blue;
     padding: 8px;
 }
 
@@ -111,82 +132,71 @@ window#waybar > box {
 }
 
 #tray menu menuitem:hover {
-    background-color: @magenta;
+    background-color: @blue;
 }
 
 #temperature {
-    background-color: @magenta;
+    background-color: @gray;
     color: @white;
 }
 
 #cpu,#memory {
-    background-color: @magenta;
+    background-color: @gray;
 }
 
 #clock {
-    background-color: @blue;
-}
-
-#network {
-    background-color: @blue;
+    background-color: @gray;
 }
 
 #network.disconnected {
-    background-color: @orange;
+    color: @orange;
 }
 
 #network.disabled {
-    background-color: @red;
+    color: @red;
 }
 
-#bluetooth {
-    background-color: @blue;
+#bluetooth.on {
+    color: @green;
 }
 
-#bluetooth .off, #bluetooth.disabled {
-    background-color: @red;
-    color: @white;
+#bluetooth.connected {
+    color: @blue;
 }
 
 #pulseaudio {
-    background-color: @cyan;
-    color: @black;
+    background-color: @gray;
+    color: @white;
 }
 
-#pulseaudio.muted {
-    background-color: @red;
-    color: @white;
+#battery {
+    background-color: @gray;
 }
 
 #battery.discharging {
-    background-color: @green;
-    color: @black;
-}
-
-#battery.charging, #battery.plugged {
-    background-color: @blue;
+    color: @green;
 }
 
 #battery.warning:not(.charging) {
-    background-color: @orange;
-    color: @white;
+    color: @orange;
 }
 
 #battery.critical:not(.charging) {
-    background-color: @red;
-    color: @white;
+    color: @red;
 }
 
 #battery.full {
-    background-color: @green;
-    color: #000000;
+    color: @green;
+}
+
+#idle_inhibitor {
+    background-color: @gray;
 }
 
 #idle_inhibitor.activated {
-    background-color: @green;
-    color: @black;
+    color: @blue;
 }
 
 #idle_inhibitor.deactivated {
-    background-color: @red;
+    color: @white;
 }
