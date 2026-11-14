@@ -10,6 +10,8 @@ local function systemKeys()
     -- Shutdown Hyprland
     hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
+    hl.bind(mainMod .. " + SHIFT + ESCAPE", hl.dsp.exec_cmd("command -v hyprshutdown > /dev/null 2>&1 && hyprshutdown -p 'systemctl poweroff' > /dev/null 2>&1"))
+
     hl.bind(mainMod .. " + P", monitors.toggleMirroring)
 
     -- Brightness
