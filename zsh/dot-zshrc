@@ -28,6 +28,7 @@ command_exists "nvim" && export EDITOR="nvim" || export EDITOR="vim"
 # --- ALIASES ---
 
 alias ls="ls --color=auto"
+alias open="xdg-open"
 
 if command_exists "fastfetch"; then
     alias ff="fastfetch"
